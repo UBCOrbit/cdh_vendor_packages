@@ -22,6 +22,11 @@
  * limitations under the License.
  */
 
+#ifdef __clang__
+  #pragma clang diagnostic push
+  #pragma clang diagnostic ignored "-Wdeprecated-register"
+#endif
+
 #if   defined ( __ICCARM__ )
  #pragma system_include         /* treat file as system include file for MISRA check */
 #elif defined (__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
@@ -2631,5 +2636,9 @@ __STATIC_INLINE int32_t ITM_CheckChar (void)
 #endif
 
 #endif /* __CORE_CM7_H_DEPENDANT */
+
+#ifdef __clang__
+  #pragma clang diagnostic pop
+#endif
 
 #endif /* __CMSIS_GENERIC */
