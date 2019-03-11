@@ -1550,19 +1550,19 @@ HAL_StatusTypeDef HAL_UART_DMAStop(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef HAL_UART_Abort(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef HAL_UART_AbortTransmit(UART_HandleTypeDef *huart);
 HAL_StatusTypeDef HAL_UART_AbortReceive(UART_HandleTypeDef *huart);
-HAL_StatusTypeDef HAL_UART_Abort_IT(UART_HandleTypeDef *huart);
-HAL_StatusTypeDef HAL_UART_AbortTransmit_IT(UART_HandleTypeDef *huart);
-HAL_StatusTypeDef HAL_UART_AbortReceive_IT(UART_HandleTypeDef *huart);
+HAL_StatusTypeDef HAL_UART_Abort_IT(void *d, UART_HandleTypeDef *huart);
+HAL_StatusTypeDef HAL_UART_AbortTransmit_IT(void *d, UART_HandleTypeDef *huart);
+HAL_StatusTypeDef HAL_UART_AbortReceive_IT(void *d, UART_HandleTypeDef *huart);
 
-void HAL_UART_IRQHandler(UART_HandleTypeDef *huart);
-void HAL_UART_TxHalfCpltCallback(UART_HandleTypeDef *huart);
-void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart);
-void HAL_UART_RxHalfCpltCallback(UART_HandleTypeDef *huart);
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
-void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart);
-void HAL_UART_AbortCpltCallback (UART_HandleTypeDef *huart);
-void HAL_UART_AbortTransmitCpltCallback (UART_HandleTypeDef *huart);
-void HAL_UART_AbortReceiveCpltCallback (UART_HandleTypeDef *huart);
+void HAL_UART_IRQHandler(void *d, UART_HandleTypeDef *huart);
+void HAL_UART_TxHalfCpltCallback(void *d, UART_HandleTypeDef *huart);
+void HAL_UART_TxCpltCallback(void *d, UART_HandleTypeDef *huart);
+void HAL_UART_RxHalfCpltCallback(void *d, UART_HandleTypeDef *huart);
+void HAL_UART_RxCpltCallback(void *d, UART_HandleTypeDef *huart);
+void HAL_UART_ErrorCallback(void *d, UART_HandleTypeDef *huart);
+void HAL_UART_AbortCpltCallback (void *d, UART_HandleTypeDef *huart);
+void HAL_UART_AbortTransmitCpltCallback (void *d, UART_HandleTypeDef *huart);
+void HAL_UART_AbortReceiveCpltCallback (void *d, UART_HandleTypeDef *huart);
 
 /**
   * @}
