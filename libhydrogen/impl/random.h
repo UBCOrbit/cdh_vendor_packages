@@ -257,7 +257,20 @@ hydro_random_init(void)
 #endif
 
 #else
-#error Unsupported platform
+//#error Unsupported platform
+
+const size_t HYDRO_INIT_BUFFER_SIZE = gimli_BLOCKBYTES + 8;
+uint8_t _hydro_init_buffer[gimli_BLOCKBYTES + 8];
+uint8_t *hydro_init_buffer = _hydro_init_buffer;
+
+static int
+hydro_random_init(void) {
+    memcpy(hydro_random_context.state, hydro_init_buffer, gimli_BLOCKBYTES);
+    memcpy(&hydro_random_context.counter, hydro_init_buffer + gimli_BLOCKBYTES, 8);
+    hydro_memzero(hydro_init_buffer, sizeof hydro_init_buffer);
+    return 0;
+}
+
 #endif
 
 static void
@@ -265,7 +278,7 @@ hydro_random_check_initialized(void)
 {
     if (hydro_random_context.initialized == 0) {
         if (hydro_random_init() != 0) {
-            abort();
+            //abort();
         }
         gimli_core_u8(hydro_random_context.state, 0);
         hydro_random_ratchet();
