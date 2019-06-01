@@ -39,6 +39,7 @@ int hydro_init(void);
 
 extern const size_t HYDRO_INIT_BUFFER_SIZE;
 extern uint8_t *hydro_init_buffer;
+extern size_t hydro_init_buffer_counter;
 
 /* ---------------- */
 
