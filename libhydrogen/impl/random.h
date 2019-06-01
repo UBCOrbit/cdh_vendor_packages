@@ -262,6 +262,7 @@ hydro_random_init(void)
 const size_t HYDRO_INIT_BUFFER_SIZE = gimli_BLOCKBYTES + 8;
 uint8_t _hydro_init_buffer[gimli_BLOCKBYTES + 8];
 uint8_t *hydro_init_buffer = _hydro_init_buffer;
+size_t hydro_init_buffer_counter = 0;
 
 static int
 hydro_random_init(void) {
